@@ -9,10 +9,10 @@ minio:
     existingSecret: minio-root
   ingress:
     enabled: true
-    hostname: minio-siaf.apps.app1.numerique-interieur.com
+    hostname: minio-siaf.sdid-app.cpin.numerique-interieur.com
   apiIngress:
     enabled: true
-    hostname: api-minio-siaf.apps.app1.numerique-interieur.com
+    hostname: api-minio-siaf.sdid-app.cpin.numerique-interieur.com
   provisioning:
     podSecurityContext:
       enabled: false
