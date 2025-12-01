@@ -2,6 +2,10 @@ environment: ovh
 phase: dev
 
 minio:
+  global:
+    imageRegistry: public.erc.aws
+    security:
+      allowInsecureImages: true
   fullnameOverride: "minio"
   enabled: true
   defaultBuckets: "app,logs,database"
