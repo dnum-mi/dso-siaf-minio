@@ -2,12 +2,20 @@ environment: ovh
 phase: dev
 
 minio:
+  image:
+    repository: bitnamilegacy/minio
+  global:
+    #imageRegistry: public.ecr.aws
+    security:
+      allowInsecureImages: true
   fullnameOverride: "minio"
   enabled: true
   defaultBuckets: "app,logs,database"
   auth:
     existingSecret: minio-root
   console:
+    image:
+      repository: bitnamilegacy/minio-object-browser
     ingress:
       enabled: true
       hostname: minio-siaf.sdid-app.cpin.numerique-interieur.com

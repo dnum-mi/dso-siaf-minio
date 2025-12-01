@@ -25,6 +25,6 @@ appVersion: "1.17.0"
 
 dependencies:
   - name: minio
-    version: "17.0.0"
+    version: "17.0.21"
     repository: "https://charts.bitnami.com/bitnami"
     condition: minio.enabled
