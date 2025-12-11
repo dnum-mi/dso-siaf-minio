@@ -2,8 +2,10 @@ environment: ovh
 phase: dev
 
 minio:
+  image:
+    repository: bitnamilegacy/minio
   global:
-    imageRegistry: public.erc.aws
+    #imageRegistry: public.ecr.aws
     security:
       allowInsecureImages: true
   fullnameOverride: "minio"
@@ -11,12 +13,17 @@ minio:
   defaultBuckets: "app,logs,database"
   auth:
     existingSecret: minio-root
+  console:
+    image:
+      repository: bitnamilegacy/minio-object-browser
+    ingress:
+      enabled: true
+      hostname: minio-siaf.sdid-app.cpin.numerique-interieur.com
+      tls: true
   ingress:
     enabled: true
-    hostname: minio-siaf.sdid-app.cpin.numerique-interieur.com
-  apiIngress:
-    enabled: true
     hostname: api-minio-siaf.sdid-app.cpin.numerique-interieur.com
+    tls: true
   provisioning:
     podSecurityContext:
       enabled: false
